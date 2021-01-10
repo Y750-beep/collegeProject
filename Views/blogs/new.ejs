@@ -1,0 +1,41 @@
+<%- include ("../partials/header") %>
+<div class="container">
+    <div class="row">
+        
+        <div style="width: 50%; margin: 25px auto;">
+            <h1 style="text-align: center">Create a New Blog</h1>
+            <form action="/blogs" method="POST">
+                <div class="form-group">
+                    <label>Title:</label>
+                    <input class="form-control" type="text" name="name" placeholder="name">
+                </div>
+                <div class="form-group">
+                    <label for="cat">Select Category:</label>
+                       <select name="cat" class="form-control">
+                     <option value="General">General</option>
+                      <option value="Technology">Technology</option>
+                      <option value="Food & Health">Food & Health</option>
+                     </select>
+                </div>
+                <div class="form-group">
+                    <label>Image:</label>
+                    <input class="form-control" type="text" name="image" placeholder="image url">
+                </div>
+                <div class="form-group">
+                    <label>Blog Description:</label>
+                   <textarea class="form-control" name="description" placeholder = "Start Writing your blog here....."></textarea>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-lg btn-primary btn-block">Submit!</button>
+                </div>
+            </form>
+            <a href="/blogs">Go Back</a>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<%- include ("../partials/footer") %>

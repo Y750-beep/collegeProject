@@ -1,0 +1,33 @@
+<%- include ("./partials/header") %>
+
+
+
+  <div class="container">
+	<div class="row">
+		<div style="width: 40%; margin: 25px auto;">
+		<h3 style="text-align: center;">LogIn Page</h3>
+		<form method="POST" action="login">
+			<div class="form-group">
+				<label>UserName:</label><input type="text" name="username" class="form-control" autofocus placeholder="username">
+			</div>
+			<div class="form-group">
+				<label>Password:</label><input type="Password" name="password" class="form-control" autofocus placeholder="Password">
+			</div>
+
+
+
+
+	<div class="form-group">
+				<button  class="btn btn-lg btn-success btn-block">Submit</button>
+			</div>
+		</form>
+    
+    
+    
+		<p>New Here?<a href="/register">SignUp</a> </p>
+		<p>Forgotten Password?<a href="">Coming Soon!</a> </p>
+			</div>
+</div>
+</div>
+
+<%- include ("./partials/footer") %>

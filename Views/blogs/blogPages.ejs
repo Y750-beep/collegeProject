@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Blooger</title>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="/css/all.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+  <!--   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript" async></script> -->
+
+
+    <!-- --------- Owl-Carousel ------------------->
+    <link rel="stylesheet" href="/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/css/owl.theme.default.min.css">
+
+    <!-- ------------ AOS Library ------------------------- -->
+   <!--  <link rel="stylesheet" href="/css/aos.css"> -->
+
+    <!-- Custom Style   -->
+    <link rel="stylesheet" href="/css/Style.css">
+
+</head>
+
+<body>
+
+    <!-- ----------------------------  Navigation ---------------------------------------------- -->
+
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/blogs">Quick Write</a>
+            </div>
+
+
+            <ul class="nav nav-pills">
+  <li class="nav-item">
+    <a class="nav-link " href="/blogs">Home</a>
+  </li>
+    <li class="nav-item">
+    <a class="nav-link active" href="/blogs/technology">Technology</a>
+  </li>
+ 
+     <% if(!currentUser){  %>
+     <li class="nav-item">
+        <a class="nav-link " href="/login">Login</a>
+    </li>
+    
+    <li class="nav-item">
+        <a class="nav-link " href="/register">Sign Up</a>
+    </li>
+    
+    <%   }else{  %>
+    
+    <li class="nav-item"> 
+        <a class="nav-link " > Signed In As <%= currentUser.username %> </a>
+    </li>
+                    
+    <li class="nav-item">
+        <a class="nav-link " href="/logout">Logout</a>
+    </li>
+               <%  }  %>
+   
+  
+
+</ul>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                <% if(!currentUser){  %>
+                     <li><a href="/login">Login</a></li>
+                    <li><a href="/register">Sign Up</a></li>
+               <%   }else{  %>
+                    <li> <a> Signed In As <%= currentUser.username %> </a></li>
+                    <li><a href="/logout">Logout</a></li>
+               <%  }  %>
+           
+                    
+                
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ------------x---------------  Navigation --------------------------x------------------- -->
+    <% if(error && error.length > 0) {%>
+<div class="alert alert-danger container" role="alert">
+    <%= error %>
+        
+    </div>
+    <% } %>
+    <% if(success && success.length>0) {%> 
+    <div class="alert alert-success container" role="alert">
+    <%= success %>
+        
+    </div>
+    <% } %>
+    <!-- ------------x---------------  Navigation --------------------------x------------------- -->
+
+    <!----------------------------- Main Site Section ------------------------------>
+    <main>
+
+ <section class="container">
+
+            <div class="site-content">
+                
+                <div class="posts">
+
+                    <div class="post-content" data-aos="zoom-in" data-aos-delay="200">
+                        <% blogs.forEach(function(blog){ %>
+                        <div class="post-image">
+                            <div>
+                                <img src="<%= blog.image %>" class="img" alt="blog1">
+                            </div>
+                            <div class="post-info flex-row">
+                                <span><i class="fas fa-user text-gray"></i>&nbsp;&nbsp;<%= blog.author.username %></span>
+                            
+                        </div>
+                        <div class="post-title">
+                            <a href="/blogs/<%= blog._id%>"> <%= blog.name %></a>
+                            <form action="/blogs/<%= blog._id%>">
+                                
+                            
+                            <button class="btn post-btn">Read More &nbsp; <i class="fas fa-arrow-right"></i></button>
+                            </form>
+                        </div>
+                        <% }); %>
+                    </div>
+                    <hr>
+                    
+                    <hr>
+   
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+
+
+    <!-- Jquery Library file -->
+    <script src="./js/Jquery3.4.1.min.js"></script>
+
+    <!-- --------- Owl-Carousel js ------------------->
+    <script src="./js/owl.carousel.min.js"></script>
+
+    <!-- ------------ AOS js Library  ------------------------- -->
+    <script src="./js/aos.js"></script>
+
+    <!-- Custom Javascript file -->
+    <script src="./js/main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+</body>
+
+</html>

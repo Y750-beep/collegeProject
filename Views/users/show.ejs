@@ -1,0 +1,46 @@
+<%- include ("../partials/header") %>
+
+ <div class="container">
+  <div class="row">
+     <div class="col-md-3">
+         <p class="lead">Writer Profile</p>
+           <div class = "list-group">
+             <li class = "list-group-item active"><%= user.username %></li>
+             <li class = "list-group-item"><a href="mailto:<%= user.email %>">Click here to mail me!</a></li>  
+                          
+                   </div>
+                   </div>
+                
+     <div class="col-md-9">
+<div id="cluster-map"></div>
+<div class="container">
+<h1>All Blogs By <%= user.username %></h1>
+
+<% blogs.forEach(function(blog){ %>
+<div class="card mb-3" >
+    <div class="row">
+        <div class="col-md-4">
+            
+            <img class="img-fluid" alt="" src="<%= blog.image %>">
+            
+            
+            
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title"><%= blog.name %> </h5>
+
+                <a class="btn btn-primary" href="/blogs/<%= blog.id %>">View <%= blog.name %></a>
+            </div>
+        </div>
+    </div>
+</div>
+<% })%>
+</div>
+         </div>
+
+
+  
+
+
+
